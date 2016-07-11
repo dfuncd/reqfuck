@@ -63,7 +63,7 @@ abstract class Reqfuck extends FormRequest
 	 */
 	public function getRuleKeys() : array
 	{
-		return array_key_exists($this->parsedMethod(), $this->rules) ? array_keys($this->rules[$this->method()]): [];
+		return array_key_exists($this->parsedMethod(), $this->rules) ? array_keys($this->rules[$this->parsedMethod()]): [];
 	}
 
 	/**
