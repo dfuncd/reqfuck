@@ -46,7 +46,7 @@ class SampleRequest extends Request
 
 ### Juicy stuff
 
-Better used with (repofuck)[https://github.com/prjkt/repofuck]
+Better used with [repofuck](https://github.com/prjkt/repofuck)
 
 
 w/ repofuck
