@@ -33,7 +33,7 @@ abstract class Reqfuck extends FormRequest
 	 *
 	 * @return \Illuminate\Contracts\Validation\Validator
 	 */
-	protected function getValidatorInstance()
+	protected function getValidatorInstance() : \Illuminate\Contracts\Validation\Validator
 	{
 		$factory = $this->container->make(\Illuminate\Contracts\Validation\Factory::class); // Originally as ValidationFactory
 
@@ -96,7 +96,7 @@ abstract class Reqfuck extends FormRequest
 	 * @param array $errors
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function response(array $errors)
+	public function response(array $errors) : \Illuminate\Http\JsonResponse
 	{
 		$errors = array_merge(['code' => 422, 'data' => $errors]);
 
