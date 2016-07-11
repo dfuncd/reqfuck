@@ -6,7 +6,7 @@ Fucking with the `FormRequest` class for the `App\Http\Requests\Request` abstrac
 
 #### Requirements
 * PHP > 7
-* Laravel > 5.1
+* Laravel HTTP > 5.1
 
 
 ```json
