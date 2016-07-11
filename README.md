@@ -11,7 +11,7 @@ Fucking with the `FormRequest` class for the `App\Http\Requests\Request` abstrac
 
 ```json
 {
-	require: {
+	"require": {
 		"prjkt/repofuck": "dev-master"
 	}
 }
