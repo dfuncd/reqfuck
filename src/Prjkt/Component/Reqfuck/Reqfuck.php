@@ -53,7 +53,9 @@ abstract class Reqfuck extends FormRequest
 	 */
 	public function rules(array $params = [], $command = 'only') : array
 	{
-		return count($params) > 0 ? call_user_func($this->getCommand($command), [$this->rules, $params]): $this->rules;
+		$rules = array_key_exists($this->parsedMethod(), $this->rules) ? $this->rules[$this->parsedMethod()] : [];
+
+		return count($params) > 0 ? call_user_func($this->getCommand($command), [$rules, $params]): $rules;
 	}
 
 	/**
