@@ -98,7 +98,7 @@ abstract class Reqfuck extends FormRequest
 	 */
 	public function response(array $errors) : \Illuminate\Http\JsonResponse
 	{
-		$errors = array_merge(['code' => 422, 'data' => $errors]);
+		$errors = ['code' => 422, 'data' => $errors];
 
 		return response()->json($errors);
 	}
