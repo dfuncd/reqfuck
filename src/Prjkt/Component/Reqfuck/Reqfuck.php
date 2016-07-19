@@ -14,6 +14,16 @@ abstract class Reqfuck extends FormRequest
 	protected $rules = [];
 
 	/**
+	 * Response data
+	 *
+	 * @var array
+	 */
+	protected $responseData = [ // We are being pessimestic here
+		'code' => 500,
+		'message' => 'Something bad went wrong'
+	];
+
+	/**
 	 * Get the parsed method
 	 *
 	 * @return string
@@ -90,15 +100,38 @@ abstract class Reqfuck extends FormRequest
 	}
 
 	/**
+	 * Set response data
+	 *
+	 * @param array $data
+	 * @return $this
+	 */
+	public function setResponseData(array $data) : \Prjkt\Component\Reqfuck\Reqfuck
+	{
+		$this->responseData = $data;
+
+		return $this;
+	}
+
+	/**
+	 * Get response data
+	 *
+	 * @return array
+	 */
+	public function getResponseData() : array
+	{
+		return $this->responseData;
+	}
+
+	/**
 	 * Default response
 	 * 
 	 * --
 	 * @param array $errors
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function response(array $errors) : \Illuminate\Http\JsonResponse
+	public function response(array $errors = []) : \Illuminate\Http\JsonResponse
 	{
-		$errors = ['code' => 422, 'data' => $errors];
+		$errors = ! count($errors) ? $this->getResponseData() : $errors;
 
 		return response()->json($errors);
 	}
